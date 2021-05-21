@@ -1,0 +1,96 @@
+body{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.nav-item{
+  position: relative;
+  margin-right: 5rem;
+}
+.gobackbtn{
+  position: relative;
+  margin: 2%;
+}
+.cards-section{
+  margin:0;
+}
+.card{
+  text-align: center;
+}
+.customersimg{
+  height: 120%;
+}
+.card1{
+  color: #f8f9fa;
+  background-color: rgba(25, 186, 65, 0.8);
+  position: relative;
+  margin: 4% 15%;
+  border-radius: 5%;
+}
+.card3{
+  color: #f8f9fa;
+  background-color: rgb(25, 186, 64, 0.8);
+  position: relative;
+  margin: 4% 15%;
+  border-radius: 5%;
+}
+/*  transfer info */
+.transferinfocard{
+  text-align: center;
+  border-radius: 5%;
+  margin: 2% auto;
+  color: #000;
+}
+.transferhistorycard{
+  text-align: center;
+  border-radius: 10%;
+  margin: 4% auto;
+  color: #000;
+}
+.transfermoneyimg{
+  margin: 0 auto;
+  width: 30%;
+}
+.card-content{
+  text-align: center;
+  border-radius: 1%;
+  margin: 2%;
+ }
+.transferinfobtn{
+  margin-top: 10%;
+}
+.viewtransactionbtn{
+  margin: 2%;
+  width: auto;
+}
+/*               Customers.ejs                */
+.customers-info{
+  display: inline;
+}
+.customers-card{
+  margin: 4%;
+
+}
+.table{
+  margin-bottom: 0;
+}
+/* payment successful */
+.successimg{
+  width: 40%;
+  height: 65vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#footer{
+  background-color: rgb(25, 186, 64);
+  color: #000;
+  position: relative;
+  width: 100%;
+  padding: 1%;
+  margin-top: auto;
+}

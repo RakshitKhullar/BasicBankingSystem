@@ -1,0 +1,23 @@
+<%- include("header") -%>
+
+<!-- view transations -->
+<div class="card transferhistorycard col-6" style="width: 15rem;background-color: rgb(25, 186, 64, 0.8);" >
+  <img class="card-img-top transfermoneyimg" src="/transfermoney.webp" alt="Card image cap">
+  <div class="card-body">
+
+    <form class="" action="/transferhistoryinfo" method="post">
+      <h5 class="card-title">Transaction History</h5>
+      <input class="card-content" type="text" name="accountnumber" placeholder="From Account no." required>
+      <button class="transferinfobtn btn btn-dark" type="submit" name="button">View Transactions</button>
+    </form>
+
+
+  </div>
+</div>
+
+
+    <form class="gobackbtn" action="/transferinfo" method="post">
+      <button class="btn btn-dark" type="submit" name="button">Go Back</button>
+    </form>
+
+<%- include("footer") -%>

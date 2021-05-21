@@ -1,0 +1,29 @@
+<%-include("header")-%>
+
+                  <!--------- cards ---------->
+                        <!--- card1 --->
+  <div class="row cards-section">
+      <div class="card col-lg-6 col-md-6 card1" style="width: 18rem;"><br>
+        <img class="customersimg card-img-top" src="/audience2.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">View all Customers</h5>
+          <p class="card-text">Click here to check the full list of our customers.</p>
+          <form class="" action="/customers" method="post">
+            <button class="btn btn-dark" type="submit" name="button">View All Customers</button>
+          </form>
+        </div>
+      </div>
+                        <!--- card3 --->
+      <div class="card col-lg-6 col-md-6 card3" style="width: 18rem;"><br>
+        <img class="card-img-top" src="/transfer1.png" alt="Card image cap" style="border-radius: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">Transfer Money</h5>
+          <p class="card-text">Transfer money Safely to any customer with just one tap.</p>
+          <form class="" action="/transferinfo" method="post">
+            <button class="btn btn-dark" type="submit" name="button">Transfer Now</button>
+          </form>
+        </div>
+      </div>
+  </div>
+
+<%- include("footer") -%>

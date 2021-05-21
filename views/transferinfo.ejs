@@ -1,0 +1,40 @@
+<%- include("header") -%>
+
+
+  <!-- trnasfer Money -->
+  <div class="card transferinfocard" style="width: 18rem;background-color: rgb(25, 186, 64, 0.8);">
+    <img class="card-img-top transfermoneyimg" src="/transfermoney.webp" alt="Card image cap">
+    <div class="card-body">
+
+      <form class="" action="/transfermoney" method="post" ">
+        <h5 class="card-title">Details</h5>
+          <p class="card-text">Pleae enter the details of sender and receiver customers.</p>
+        <input class="card-content" type="text" name="transferfrom" placeholder="From Account no."  required>
+        <input class ="card-content" type="text" name="transferto" placeholder="To Account no." required>
+        <input class="card-content" type="text" name="amount" placeholder="Amount to Transfer" required>
+        <button class="transferinfobtn btn btn-dark" type="submit" name="button">Pay Now</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- transfer history button -->
+  <div class="row">
+
+    <div class="col-lg-6 col-md-6 col-sm-6" style="display: block;margin-left: auto;margin-right: auto;">
+      <form class="gobackbtn" action="/" method="get">
+        <button class="btn btn-dark" type="submit" name="button">Go Back</button>
+      </form>
+      
+      <form class="viewtransactionbtn" action="/transferhistoryinfo" method="get">
+        <button class="btn btn-dark" type="submit" name="button">View All Transactions</button>
+      </form>
+    </div>
+    
+  </div>
+
+
+
+
+
+
+<%- include("footer") -%>

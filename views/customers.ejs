@@ -1,0 +1,35 @@
+<%-include("header")-%>
+
+
+  <div class="card customers-card">
+  <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Account no.</th>
+      <th scope="col">Phone no.</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%  var serielno = 1; %>
+    <%  customers.forEach(customer => {  %>
+    <tr>
+      <th scope="row"><%= serielno %>.</th>
+      <td><%=customer.name %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.accountno %></td>
+      <td><%= customer.contact %></td>
+    </tr>
+  <%  serielno++; %>
+    <%  });     %>
+  </tbody>
+</table>
+</div>
+
+<form class="gobackbtn" action="/" method="get">
+  <button class="btn btn-dark" type="submit" name="button">Go Back</button>
+</form>
+
+<%-include("footer")-%>
