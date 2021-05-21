@@ -8,9 +8,8 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
- 
-mongoose.connect("mongodb+srv://RakshitKhullar:Rakshit@123@cluster0.qfbmm.mongodb.net/BankingSystemDatabase",{useNewUrlParser: true,useUnifiedTopology: true});
 
+ mongoose.connect("mongodb+srv://RakshitKhullar:Rakshit@123@cluster0.qfbmm.mongodb.net/BankingSystemDatabase",{useNewUrlParser: true,useUnifiedTopology: true});
 
 const customerSchema =  new mongoose.Schema({
   accountno: Number,
@@ -24,23 +23,23 @@ const customerSchema =  new mongoose.Schema({
 const Customer = mongoose.model("Customer",customerSchema);
 
 const customersarray = [
-  {accountno: 9213921301 ,name: "Mohit"  ,email: "mohitkumar123@gmail.com"   ,contact: 9999999901    ,bankBalance:100000,transations:[] },
-  {accountno: 9213921302 ,name: "Rao"   ,email: "rmayank99@gmail.com"  ,contact:  9999999902   ,bankBalance:100,transations:[]  },
-  {accountno: 9213921303 ,name: "Ritik"   ,email: "ritiksherawat@gmail.com"  ,contact:  9999999903   ,bankBalance:2000,transations:[]  },
-  {accountno: 9213921304 ,name: "Khullar"   ,email:  "rokorakshit@gmail.com"  ,contact:  9999999904   ,bankBalance:3000000,transations:[]  },
-  {accountno: 9213921305 ,name: "Piyush"   ,email: "piyushrocks21@gmail.com"  ,contact:  9999999905    ,bankBalance:875800,transations:[]   },
-  {accountno: 9213921306 ,name: "jonty"   ,email:  "jontyrocks24@gmail.com"  ,contact:  9999999906    ,bankBalance:5546000,transations:[]   },
-  {accountno: 9213921307 ,name: "Ishi"   ,email: "ishirathore@gmail.com"   ,contact:  9999999907    ,bankBalance:450000,transations:[]  },
-  {accountno: 9213921308 ,name: "Sumit"   ,email: "sumitsharma@gmail.com"   ,contact: 9999999908     ,bankBalance:50454,transations:[]  },
-  {accountno: 9213921309 ,name: "Sameer"  ,email:  "sameerjangra@gmail.com"  ,contact: 9999999909     ,bankBalance:6000,transations:[]  },
-  {accountno: 9213921310 ,name: "Ajay"  ,email: "Ajay@gmail.com"   ,contact: 9999999910     ,bankBalance:75700,transations:[]  }
+  {accountno: 9213921301 ,name: "Batista"  ,email: "souravbot123@gmail.com"   ,contact: 9999999901    ,bankBalance:100000,transations:[] },
+  {accountno: 9213921302 ,name: "Rao"   ,email: "rmayank99@gmail.com"  ,contact:  9999999902   ,bankBalance:10000,transations:[]  },
+  {accountno: 9213921303 ,name: "Ritik"   ,email: "ritiksherawat@gmail.com"  ,contact:  9999999903   ,bankBalance:200000,transations:[]  },
+  {accountno: 9213921304 ,name: "Khulli"   ,email:  "rokorakshit@gmail.com"  ,contact:  9999999904   ,bankBalance:30000,transations:[]  },
+  {accountno: 9213921305 ,name: "Piyush"   ,email: "piyushrocks21@gmail.com"  ,contact:  9999999905    ,bankBalance:40000,transations:[]   },
+  {accountno: 9213921306 ,name: "jonty"   ,email:  "jontyrocks24@gmail.com"  ,contact:  9999999906    ,bankBalance:500000,transations:[]   },
+  {accountno: 9213921307 ,name: "Ishu"   ,email: "mansukhrathore@gmail.com"   ,contact:  9999999907    ,bankBalance:450000,transations:[]  },
+  {accountno: 9213921308 ,name: "Sumit"   ,email: "sumitsharma@gmail.com"   ,contact: 9999999908     ,bankBalance:50000,transations:[]  },
+  {accountno: 9213921309 ,name: "Vikas"  ,email:  "vikasjangra@gmail.com"  ,contact: 9999999909     ,bankBalance:60000,transations:[]  },
+  {accountno: 9213921310 ,name: "Bhaskar"  ,email: "bhaskar@gmail.com"   ,contact: 9999999910     ,bankBalance:70000,transations:[]  }
 ];
 
-//  Customer.insertMany(customersarray,(err,result) => {
-//    if(!err){
-//      console.log("Array of customers added successfully");
-//    }
-//  });
+ // Customer.insertMany(customersarray,(err,result) => {
+ //   if(!err){
+ //     console.log("Array of customers added successfully");
+ //   }
+ // });
 
 ///////////////////////    Get Requests     ////////////////////////
 app.get("/",(req,res) => {
@@ -74,11 +73,8 @@ app.post("/transfermoney",(req,res) => {
     res.render("sameaccountfailure");
   }else{
     //////////////////////   find receiver   /////////////////////////
-    Customer.find({accountno: transferfrom},(err,sendercustomer) => {
+    Customer.findOne({accountno: transferfrom},(err,sendercustomer) => {
       if(!err){
-        if(sendercustomer.length === 0){
-          res.render("paymentfailure");
-        }
         if(sendercustomer.bankBalance >= amount){
           console.log("sendercustomer bank balance :" + sendercustomer.bankBalance)
           const newbalance = Number(sendercustomer.bankBalance) - Number(amount);
@@ -94,12 +90,7 @@ app.post("/transfermoney",(req,res) => {
           });
 
     //////////////////////   find receiver   /////////////////////////
-          Customer.find({accountno: transferto},(err,receivercustomer) => {
-            if(!err){
-              if(receivercustomer.length === 0){
-                res.render("paymentfailure");
-              } 
-            }
+          Customer.findOne({accountno: transferto},(err,receivercustomer) => {
             if(!err){
                 const newbalanceto = Number(receivercustomer.bankBalance) + Number(amount);
     //////////////////////// Update receiver bank balance ////////////
