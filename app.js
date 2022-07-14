@@ -9,7 +9,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
- mongoose.connect("mongodb+srv://RakshitKhullar:Rakshit@123@cluster0.qfbmm.mongodb.net/BankingSystemDatabase",{useNewUrlParser: true,useUnifiedTopology: true});
+//  mongoose.connect("mongodb+srv://RakshitKhullar:Rakshit@123@cluster0.qfbmm.mongodb.net/BankingSystemDatabase",{useNewUrlParser: true,useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://RakshitKhullar:Rakshit@123@cluster0.qfbmm.mongodb.net/BankingSystemDatabase?retryWrites=true&w=majority",{useNewUrlParser: true,useUnifiedTopology: true});
 
 const customerSchema =  new mongoose.Schema({
   accountno: Number,
